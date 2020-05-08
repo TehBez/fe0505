@@ -1,0 +1,52 @@
+table {
+    border-collapse: collapse;
+    width: 30vw;
+    height: 30vw;
+}
+
+td {
+    border: 1px solid black;
+}
+
+.logo {
+    font-size: 30px;
+    width: 9vw;
+    height: 9vw;
+    background-color: gold;
+    text-align: center;
+}
+
+.menu {
+    font-size: 30px;
+    background-color: red;
+    text-align: center;
+}
+
+.news {
+    font-size: 30px;
+    color: white;
+    background-color: brown;
+    text-align: center;
+}
+
+.list {
+    width: 14vw;
+    font-size: 30px;
+    background-color: gold;
+    text-align: center;
+}
+
+.nav {
+    font-size: 30px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    width: 7vw;
+}
+
+.footer {
+    font-size: 30px;
+    background-color: gold;
+    text-align: center;
+    height: 6vw
+}
