@@ -1,7 +1,7 @@
 table {
-    border-collapse: collapse;
     width: 30vw;
     height: 30vw;
+    border-collapse: collapse;
 }
 
 td {
@@ -14,19 +14,25 @@ td {
     height: 9vw;
     background-color: gold;
     text-align: center;
+    border-left: none;
+    border-top: none;
 }
 
 .menu {
     font-size: 30px;
     background-color: red;
     text-align: center;
+    border-top: none;
+    border-right: none;
 }
 
 .news {
     font-size: 30px;
+    height: 16vw;
     color: white;
     background-color: brown;
     text-align: center;
+    border-left: none;
 }
 
 .list {
@@ -42,11 +48,15 @@ td {
     background-color: black;
     text-align: center;
     width: 7vw;
+    border-right: none;
+    border-spacing: none;
 }
 
 .footer {
     font-size: 30px;
     background-color: gold;
     text-align: center;
-    height: 6vw
+    height: 5vw;
+    border-bottom: none;
+    border-left: none;
 }
