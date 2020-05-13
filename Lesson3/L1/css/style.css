@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+}
+
+.card {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    max-width: 533px;
+
+    margin: 20px auto;
+    padding: 242px 76px 80px 81px;
+
+    box-sizing: border-box;
+
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /* background: #000000; */
+    /* opacity: 0.41; */
+    background: rgba(0, 0, 0, .41);
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.05);
+
+    z-index: 2;
+}
+
+.card::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 3;
+
+    background: linear-gradient(179.62deg, rgba(255, 255, 255, 0.0001) -172.92%, rgba(115, 115, 115, 0.0001) -23.18%, rgba(47, 47, 47, 0.0001) 49.87%, #000000 99.74%);
+    opacity: 0.5;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+}
+
+.card__body {
+    position: relative;
+
+    color: #FFFFFF;
+
+    z-index: 4;
+}
+
+.card__title {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 49px;
+    line-height: 0.9;
+    text-align: center;
+    margin-bottom: 39px;
+}
+
+.card__description {
+    font-size: 18px;
+    line-height: 28px;
+
+    color: #F9F9F9;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card__price {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 53px;
+    line-height: 44px;
+    text-align: center;
+    margin-bottom: 105px;
+}
+
+.card__actions {
+    text-align: center;
+}
+
+.card__add {
+    display: inline-block;
+
+    background: #EC6732;
+    border: 0;
+    border-radius: 100px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-align: center;
+
+    min-width: 244px;
+    padding: 23px;
+
+    color: #FFF;
+    cursor: pointer;
+}
+
+.card__add:focus {
+    outline: none;
+
+    box-shadow: 0 0 6px 2px rgb(251, 241, 237);
+}
+
+.card__add:active {
+    transform: scale(0.9);
+}
