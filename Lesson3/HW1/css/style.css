@@ -47,13 +47,15 @@ body {
 }
 
 .card__button {
-    padding-top: 41px;
+    padding-top: 34px;
 }
 
 .card__travel {
     background: #EC6732;
     border: 0;
     border-radius: 100px;
+    width: 80px;
+    height: 24px;
 
     font-family: Roboto;
     font-style: normal;
@@ -68,9 +70,13 @@ body {
 }
 
 .card__business {
+    margin-left: 13px;
+    
     background: #EC6732;
     border: 0;
     border-radius: 100px;
+    width: 80px;
+    height: 24px;
 
     font-family: Roboto;
     font-style: normal;
