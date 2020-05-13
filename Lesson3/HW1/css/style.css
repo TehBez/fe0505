@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    background-color: gainsboro;
+}
+
+.card {
+    display: block;
+    margin: 20px auto;
+
+    width: 100%;
+    max-width: 350px;
+    height: 515px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.card__image {
+    position: relative;
+    left: 35px;
+    right: 35px;
+    top: 35px;
+    bottom: auto;
+}
+
+.card__body {
+    position: absolute;
+}
+.card__desc {
+    position: relative;
+    
+}
