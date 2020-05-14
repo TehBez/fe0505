@@ -77,7 +77,16 @@ body {
 .card__actions {
     position: absolute;
     padding-top: 529px;
+    color: white;
+    text-decoration: none;
+    outline: none;
 }
+
+.card__explore:hover {
+    text-decoration: none;
+    color: black;
+}
+
 
 .card__explore {
     padding: 17px 54px 18px 55px;
@@ -105,13 +114,6 @@ body {
 .card__explore:active {
     transform: scale(0.9);
 }
-
-.card__url {
-    text-decoration: none;
-    color: white;
-}
-
-
 
 /*  style  card__right-down */
 
