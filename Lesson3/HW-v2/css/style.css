@@ -1,41 +1,41 @@
 body {
     margin: 10px auto;
-    background-color: rgb(236, 236, 236);
 }
 
 /* style main */
 
 .card {
-    position: relative;
     display: block;
+
+    position: relative;
+    
     margin: 10px auto;
     
     width: 1200px;
     min-height: 911px;
     height: auto;
-}
-
-.card__backImg {
-    position: absolute;
-
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../img/backImg.png");
     border-radius: 8px;
-    z-index: 1;
+
+    z-index: 2;
 }
 
 .card__body {
     position: absolute;
 
-    width: 100%;
-    height: (100%-179px);
-    z-index: 2;
     padding-left: 179px;
+    
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
 }
 
 .card__title {
     position: absolute;
+
     padding-top: 313px;
     
-    font: normal;
     font-family: 'Lato', sans-serif;
     font-weight: 100;
     font-size: 64px;
@@ -51,8 +51,10 @@ body {
 
 .card__line {
     position: absolute;
+
     padding-top: 401px;
     padding-left: 2px;
+
     width: 100px;
     size: 1px;
 
@@ -61,10 +63,10 @@ body {
 
 .card__desc {
     position: absolute;
+
     padding-top: 427px;
 
     font-family: 'Lato', sans-serif;
-    font: normal;
     font-weight: 100;
     font-size: 22px;
     line-height: 28px;
@@ -78,29 +80,25 @@ body {
 }
 
 .card__explore {
-    
-    padding-left: 234px;
+    padding: 17px 54px 18px 55px;
+
+    text-align: center;
 
     background: #EC6732;
     border: 0;
     border-radius: 100px;
 
     font-family: 'Lato', sans-serif;
-    font: normal;
     font-size: 16px;
     line-height: 19px;
 
-    text-align: center;
-
-    padding: 17px 54px 18px 55px;
-
     color: #FFF;
+
     cursor: pointer;
 }
 
 .card__explore:focus {
     outline: none;
-
     box-shadow: 0 0 6px 2px rgb(251, 241, 237);
 }
 
@@ -113,54 +111,52 @@ body {
 
 .card__right-down {
     position: absolute;
+
     margin-top: 394px;
     margin-left: 809px;
+
     height: 670px;
     width: 533px;
-    z-index: 2;
-}
-
-.card__img {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
 
     object-fit: cover;
     border-radius: 8px;
+    
+    background: url("../img/img.jpg") no-repeat;;
+    background-position: center;
+    background-size: 100%;
+    
     z-index: 2;
 }
 
 .card__rd-title {
+    position: absolute;
+
+    padding-top: 242px;
+
     width: 100%;
     height: 100%;
 
-    position: absolute;
-    padding-top: 242px;
+    text-align: center;
 
     font-family: 'Lato', sans-serif;
-    font: normal;
     font-weight: 900;
     font-size: 49px;
     line-height: 0.9;
 
     color: #F9F9F9;
-    text-align: center;
     
     z-index: 3;
 }
 
 .card__rd-desc {
+    position: absolute;
+
+    padding-top: 325px;
+
     width: 100%;
     height: 100%;
 
-    position: absolute;
-    padding-top: 325px;
-    
     font-family: 'Lato', sans-serif;
-    font: normal;
     font-size: 18px;
     line-height: 28px;
 
@@ -171,20 +167,20 @@ body {
 }
 
 .card__rd-price {
-    width: 100%;
-    height: 100%;
-
     position: absolute;
     padding-top: 373px;
 
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+
     font-family: 'Lato', sans-serif;
-    font: bold;
     font-size: 53px;
     line-height: 44px;
     font-weight: 900;
 
     color: #F9F9F9;
-    text-align: center;
     
     z-index: 3;
 }
@@ -194,8 +190,10 @@ body {
 
 .card__right-up {
     position: absolute;
+
     margin-top: -452px;
     margin-left: 990px;
+
     height: 670px;
     width: 531px;
 
@@ -214,7 +212,6 @@ body {
     padding-top: 471px;
 
     font-family: 'Lato', sans-serif;
-    font-style: normal;
     font-weight: 600;
     font-size: 30px;
     line-height: 30px;
@@ -226,6 +223,7 @@ body {
 
 .card__around-b {
     position: absolute;
+
     margin-top: 532px; 
     margin-left: 39px;
 
@@ -234,11 +232,13 @@ body {
     border: 8px solid #000000;
     border-radius: 50%;
     background-color: #000000;
+
     z-index: 3;
 }
 
 .card__around-o {
     position: absolute;
+
     margin-top: 532px; 
     margin-left: 94px;
 
@@ -247,11 +247,13 @@ body {
     border: 8px solid #EC6732;
     border-radius: 50%;
     background-color: white;
+
     z-index: 3;
 }
 
 .card__around-g {
     position: absolute;
+
     margin-top: 532px; 
     margin-left: 149px;
 
@@ -260,17 +262,18 @@ body {
     border: 8px solid lightgray;
     border-radius: 50%;
     background-color: lightgray;
+
     z-index: 3;
 }
 
 .card__ru-price {
     position: absolute;
+
     margin-top: 582px; 
     margin-left: 39px;
 
     font-family: 'Lato', sans-serif;
-    font-style: normal;
-    font-weight: bold;
+    font-weight: 900;
     font-size: 53px;
     line-height: 63px;
     color: #515151;
