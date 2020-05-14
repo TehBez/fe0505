@@ -1,5 +1,6 @@
 body {
     margin: 10px auto;
+    background-color: rgb(236, 236, 236);
 }
 
 /* style main */
@@ -29,8 +30,6 @@ body {
     z-index: 2;
     padding-left: 179px;
 }
-
-
 
 .card__title {
     position: absolute;
@@ -110,7 +109,7 @@ body {
 }
 
 
-/*  style  card__right-down*/
+/*  style  card__right-down */
 
 .card__right-down {
     position: absolute;
@@ -187,5 +186,94 @@ body {
     color: #F9F9F9;
     text-align: center;
     
+    z-index: 3;
+}
+
+
+/*  style  card__right-up */
+
+.card__right-up {
+    position: absolute;
+    margin-top: -452px;
+    margin-left: 990px;
+    height: 670px;
+    width: 531px;
+
+    object-fit: cover;
+    border-radius: 8px;
+
+    background-color: white;
+
+    z-index: 2;
+}
+
+.card__ru-title {
+    position: absolute;
+    
+    padding-left: 39px;
+    padding-top: 471px;
+
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 30px;
+
+    color: #363636;
+
+    z-index: 3;
+}
+
+.card__around-b {
+    position: absolute;
+    margin-top: 532px; 
+    margin-left: 39px;
+
+    width: 6px;
+    height: 6px;
+    border: 8px solid #000000;
+    border-radius: 50%;
+    background-color: #000000;
+    z-index: 3;
+}
+
+.card__around-o {
+    position: absolute;
+    margin-top: 532px; 
+    margin-left: 94px;
+
+    width: 6px;
+    height: 6px;
+    border: 8px solid #EC6732;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 3;
+}
+
+.card__around-g {
+    position: absolute;
+    margin-top: 532px; 
+    margin-left: 149px;
+
+    width: 6px;
+    height: 6px;
+    border: 8px solid lightgray;
+    border-radius: 50%;
+    background-color: lightgray;
+    z-index: 3;
+}
+
+.card__ru-price {
+    position: absolute;
+    margin-top: 582px; 
+    margin-left: 39px;
+
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 53px;
+    line-height: 63px;
+    color: #515151;
+
     z-index: 3;
 }
