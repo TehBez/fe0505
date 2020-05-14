@@ -16,7 +16,6 @@ body {
 
 .card__body {
     width: 80%;
-    display: inline-block;
 }
 
 .card__desc {
