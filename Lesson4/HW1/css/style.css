@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: gainsboro;
+    background-color: rgb(255, 255, 255);
 }
 
 .cards {
@@ -23,17 +23,19 @@ body {
 /* Card - design */
 
 .card__body {
+    display: flex;
+    flex-direction: column;
     flex-basis: auto;
+    align-items: center;
     
 
-    min-width: 200px;
-
-    margin: 10px 30px auto;
+    margin: 10px 20px auto;
     padding: 15px;
     
     border-radius: 8px;
 
     background: rgb(255, 255, 255);
+    box-shadow: 0 0 6px 2px rgb(0, 0, 0);
 }
 
 .card__image {
@@ -41,26 +43,116 @@ body {
     text-align: center;
 }
 
+/* Card - text */
+
+.text-wrap {
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    align-items: flex-start;
+}
+
 .card__title {
+    width: 100%;
+    justify-content: flex-start;
+
     padding-top: 45px;
 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #000000;
 }
 
 .card__code {
     padding-top: 6px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+
+    color: #000000;
 }
 
 .card__review {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
     padding-top: 16px;
     padding-right: 15px;
     padding-left: auto;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+
+    color: #000000;
 }
 
 .card__price {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
     padding-top: 26px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+
+    color: #000000;
+}
+
+.card_amount {
+font-family: 'Roboto', sans-serif;
+font-weight: 900;
+font-size: 16px;
+line-height: 19px;
+
+color: #000000;
+}
+
+/* Card - button */
+
+.card__button {
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    align-items: center;
+
+    margin-top: 20px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 16px;
+
+    text-transform: uppercase;
 }
 
 .card__buy {
-    margin-top: 20px;
-    padding: 12px 58px 11px
+    padding: 12px 58px 11px;
+    border: 1px solid #00ACDC;
+    background: #00ACDC;
+    color: white;
+    border-radius: 5px;
+    
+    cursor: pointer;
+    
+    outline: none;      
+}
+
+.card__buy:hover {
+    border: 1px solid #00ACDC;
+    background: rgb(255, 255, 255);
+    color: #00ACDC;
+}
+
+.card__button:active {
+    transform: scale(0.9);
 }
