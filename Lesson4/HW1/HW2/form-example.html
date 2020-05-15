@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .form {
+            line-height: 2;
+        }       
+    </style>
+</head>
+<body>
+    <div class="form">
+        <fieldset>
+            <legend>Personal information</legend>
+            <label>Surname: <input type="text" required></label><br>
+            <label>Name: <input type="text" required></label><br>
+            <label>How old are You? <input type="number" required></label><br>
+            <label>Full date of birth: <input type="date" placeholder="dd/mm/yyyy" required></label><br>
+            <label>I accept the term of the agreement <input type="checkbox" required></label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Registration</legend>
+            <label>E-mail: <input type="email" placeholder="email@example.com" required></label><br>
+            <label>Password: <input type="password" required></label><br>
+        </fieldset>
+        <fieldset>
+            <legend>An interesting fact about you!</legend>
+            <label>Do you love cats? </label><input type="radio" required><label> Yes </label><input type="radio" required><label> No </label><br>
+            <label>What is your favorite color? </label><input type="color" required><br>
+            <label>What time do you go to bed? </label><input type="time" required><br>
+            <label>What are your favorite brand of cars? </label>
+            <select name="spisok" size="4">
+                <option value="car1">BMW</option>
+                <option value="car2">Audi</option>
+                <option value="car3">Lada</option>
+                <option value="car4"></option>
+            </select><br>
+            <label>How do you rate our work? </label><input type="range" min="0" max="100" step="1" value="0"><br> 
+        </fieldset>
+        <fieldset>
+            <legend>Additional info:</legend>
+            <label>Comments: </label><textarea name="comments" cols="15" rows="2"></textarea><br>
+            <label>Would you recommend us? </label>
+            <select name="spisok" size="1">
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select><br>
+        </fieldset>
+        <br>
+        <input type="submit" value="Submit">
+    </div>
+</body>
+</html>

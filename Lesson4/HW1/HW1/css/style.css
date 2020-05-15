@@ -25,6 +25,7 @@ body {
 .card__body {
     flex-basis: auto;
     
+
     min-width: 200px;
 
     margin: 10px 30px auto;
