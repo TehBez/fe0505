@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    background-color: gainsboro;
+}
+
+.cards {
+    display: flex;
+
+    width: 100%;
+}
+
+/* Card - position */
+
+.card {
+    flex-basis: 200px;
+    flex-grow: 1;
+    flex-shrink: 2;
+
+    min-height: 403px;
+    height: auto;
+}
+
+/* Card - design */
+
+.card__body {
+    flex-basis: auto;
+    
+    min-width: 200px;
+
+    margin: 10px 30px auto;
+    padding: 15px;
+    
+    border-radius: 8px;
+
+    background: rgb(255, 255, 255);
+}
+
+.card__image {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.card__title {
+    padding-top: 45px;
+
+}
+
+.card__code {
+    padding-top: 6px;
+}
+
+.card__review {
+    padding-top: 16px;
+    padding-right: 15px;
+    padding-left: auto;
+}
+
+.card__price {
+    padding-top: 26px;
+}
+
+.card__buy {
+    margin-top: 20px;
+    padding: 12px 58px 11px
+}
