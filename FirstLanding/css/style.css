@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    background: #F3F7FA;
+}
+
+.aviasales {
+    position: relative;
+    width: auto;
+    height: auto;
+
+    margin-top: 50px;
+    margin-left: 103px;
+    margin-right: 103px;
+}
+
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.filter {
+    display: flex;
+}
