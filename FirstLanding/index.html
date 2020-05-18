@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="logo">
+        <img class="imgLogo" src="img/Logo.svg" alt="">
+    </div>
     <div class="aviasales">
-        <div class="logo">
-            <img class="imgLogo" src="img/Logo.svg" alt="">
-        </div>
         <div class="aviasales__body">
             <div class="filter">
                 <span class="filter__main">Количество пересадок</span>
-                <label class="filter__check"><input type="checkbox" required>Все</label>
-                <label class="filter__check"><input type="checkbox" required>Без пересадок</label>
-                <label class="filter__check"><input type="checkbox" required>1 пересадка</label>
-                <label class="filter__check"><input type="checkbox" required>2 пересадки</label>
-                <label class="filter__check"><input type="checkbox" required>3 пересадки</label>
+                <div class="filter__check">
+                    <label class="check__option"><input class="check__input" type="checkbox" required><span class="check__box"></span>Все</label>
+                    <label class="check__option"><input class="check__input" type="checkbox" required><span class="check__box"></span>Без пересадок</label>
+                    <label class="check__option"><input class="check__input" type="checkbox" required><span class="check__box"></span>1 пересадка</label>
+                    <label class="check__option"><input class="check__input" type="checkbox" required><span class="check__box"></span>2 пересадки</label>
+                    <label class="check__option"><input class="check__input" type="checkbox" required><span class="check__box"></span>3 пересадки</label>
+                </div>
             </div>
             <div class="main">
                 <div class="tabs">
@@ -31,39 +33,31 @@
                         <label for="tab2" class="tab-title">Самый быстрый</label> 
                     </div>
                 </div>
-                <div class="tickets">
-                    <div class="ticket__body">
+                <div class="ticket">
+                    <div class="ticket__header">
                         <span class="ticket__price">13 400 P</span>
                         <img class="imgAirlines" src="img/Airlines.jpg" alt="">
-                        <div class="ticket__info1">
-                            <div class="ticket__route">
-                                <span class="ticket__def">MOW – HKT</span>
-                                <span class="ticket__value">10:45 - 08:00</span>
-                            </div>
-                            <div class="ticket__lenght">
-                                <span class="ticket__def" lang="ru">В пути</span>
-                                <span class="ticket__value" lang="ru">21 ч 15 м</span>
-                            </div>
-                            <div class="ticket__stops">
-                                <span class="ticket__def" lang="ru">2 пересадки</span>
-                                <span class="ticket__value">HKG, JNB</span>
-                            </div>
-                        </div>    
-                        <div class="ticket__info2">
-                            <div class="ticket__route">
-                                <span class="ticket__def">MOW – HKT</span>
-                                <span class="ticket__value">11:20 - 00:50</span>
-                            </div>
-                            <div class="ticket__lenght">
-                                <span class="ticket__def" lang="ru">В пути</span>
-                                <span class="ticket__value" lang="ru">13 ч 30 м</span>
-                            </div>
-                            <div class="ticket__stops">
-                                <span class="ticket__def" lang="ru">1 пересадка</span>
-                                <span class="ticket__value">HKG</span>
-                            </div>
-                        </div>    
-                    </div>
+                    </div>    
+                    <div class="ticket__info">
+                        <div class="ticket__route">
+                            <span class="ticket__def">MOW – HKT</span><br>
+                            <span class="ticket__value">10:45 - 08:00</span><br><br>
+                            <span class="ticket__def">MOW – HKT</span><br>
+                            <span class="ticket__value">11:20 - 00:50</span>
+                        </div>
+                        <div class="ticket__lenght">
+                            <span class="ticket__def" lang="ru">В пути</span><br>
+                            <span class="ticket__value" lang="ru">21 ч 15 м</span><br><br>
+                            <span class="ticket__def" lang="ru">В пути</span><br>
+                            <span class="ticket__value" lang="ru">13 ч 30 м</span>
+                        </div>
+                        <div class="ticket__stops">
+                            <span class="ticket__def" lang="ru">2 пересадки</span><br>
+                            <span class="ticket__value">HKG, JNB</span><br><br>
+                            <span class="ticket__def" lang="ru">1 пересадка</span><br>
+                            <span class="ticket__value">HKG</span>
+                        </div>
+                    </div>    
                 </div>
             </div>    
         </div>
