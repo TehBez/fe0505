@@ -86,9 +86,16 @@ body {
     flex-grow: 1;
 }
 
-/* Попытка спрятать чекбокс */
+/* Попытка спрятать чекбокс radio - попытка неудачная*/
 
-.tab input[type="radio"] { display: none; }
+/* .tab input[type="radio"] { display: none; } */
+
+.tab input[type="radio"] {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 
 
 /* Дизайн tabs */
@@ -122,8 +129,6 @@ body {
 
     cursor: url(../img/Cursor.png), pointer;
 }
-
-
 
 /* Блок filter */
 
