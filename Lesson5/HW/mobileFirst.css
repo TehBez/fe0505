@@ -1,0 +1,171 @@
+/* Breakpoints values
+
+- Large Desktop: 1800px
+- Medium Desktop: 1200px
+- Tablet Landscape: 960px
+- Tabled Portrait: 768px
+- Mobile: 320px */
+
+* {
+    box-sizing: border-box;
+}
+
+.first {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.first .colored {
+    flex: 1 0 35%;
+}
+
+.second {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.second .colored {
+    flex: 1 0 35%;
+}
+
+@media (min-width: 768px) {
+    .fourth {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    .fourth .colored {
+        flex: 1 0 35%;
+    }
+
+    .fourth .colored:last-child {
+        flex: 1 0 100%;
+    }
+
+    .fifth {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    .fifth .colored {
+        flex: 1 0 35%;
+    }
+
+    .fifth .colored:last-child {
+        flex: 1 0 100%;
+    }
+}
+
+@media (min-width: 960px) {
+    .third {
+        display:flex;
+        flex-wrap: nowrap;
+    }
+    
+    .third .colored {
+        flex: 1 0 0;
+    }
+
+    .fourth {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    .fourth .colored {
+        flex: 1 0 30%;
+    }
+
+    .fourth .colored:last-child {
+        flex: 1 0 30%;
+    }
+
+    .fourth .colored:nth-child(2) {
+        max-width: 30%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .third {
+        display:flex;
+        flex-wrap: wrap;
+    }
+    
+    .third .colored {
+        flex: 1 0 50%;
+    }
+
+    .third .colored:last-child {
+        flex: 1 0 100%;
+    }
+
+    .fifth {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .fifth .colored {
+        flex: 0 0 33%;
+    }
+
+    .fifth .colored:last-child {
+        flex: 0 0 33%;
+    }
+}
+
+@media (min-width: 1800px) {
+    .first {
+        display:flex;
+        flex-direction: row;
+    }
+    
+    .first .colored {
+        flex: 1 0 0;
+    }
+
+    .second {
+        display:flex;
+        flex-direction: row;
+    }
+    
+    .second .colored {
+        flex: 1 0 0;
+    }
+
+    .third {
+        display:flex;
+        flex-direction: row;
+    }
+
+    .third .colored {
+        flex: 0 0 25%;
+    }
+    .third .colored:last-child {
+        flex: 0 0 25%;
+    }
+
+    .fourth {
+        display:flex;
+        flex-direction: row;
+    }
+
+    .fourth .colored {
+        flex: 0 0 25%;
+    }
+
+    .fourth .colored:last-child {
+        flex-grow: 1;
+    }
+
+    .fifth {
+        display:flex;
+        flex-direction: row;
+    }
+
+    .fifth .colored {
+        flex: 1 0 0;
+    }
+
+    .fifth .colored:last-child {
+        flex: 1 0 0;
+    }
+}
