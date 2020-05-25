@@ -4,7 +4,6 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-size: 14px;
-    line-height: 22px;
 
     text-align: center;
     text-transform: uppercase;
@@ -12,17 +11,7 @@
     color: #242635;
 }
 
-/* Лупа */
-.fas  {
-    cursor: pointer;
-}
 
-.fas .fa-search {
-    font-weight: 400;
-    font-size: 14px;
-
-    color: #242635;
-}
 
 h1 {
     font-family: 'Nunito', sans-serif;
@@ -58,13 +47,39 @@ h1 {
     color: #FFFFFF;
 }
 
-/* Стрелка */
-.fa-long-arrow-alt-right {
-    font-weight: 600;
-    font-size: 18px;
-    
-    color: #FFFFFF;
 
+/* Стиль ссылки */
+a {
     cursor: pointer;
+    text-decoration: none;
 }
 
+/* a:focus {
+    background-color: #242635;
+} */
+
+a:active {
+    transform: scale(1.5);
+}
+
+a:hover {
+    color: green;
+}
+
+
+/* Лупа */
+.fas .fa-search {
+    font-weight: 400;
+    font-size: 14px;
+
+    color: #242635;
+}
+
+
+/* Стрелка */
+.fas .fa-long-arrow-alt-right {
+    font-weight: 600;
+    font-size: 18px;
+
+    color: #FFFFFF;
+}
