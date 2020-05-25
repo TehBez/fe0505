@@ -16,17 +16,50 @@ body {
 
     display: flex;
     flex-direction: column;
+
+    box-sizing: border-box;
 }
 
 .main__info {
     flex: 1 0 80%;
     padding: 5% 8% 10% 7%;
+    
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
 }
+
+.logo__field {
+    flex: 1 0 30%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.h1__field {
+    flex: 1 0 30%;
+}
+
+.p__field {
+    flex: 1 0 40%;
+}
+
 
 .footer__info {
     flex: 1 0 20%;
+
+    padding-left: 8%;
+    padding-right: 10%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+
+/* Правая секция */
 .img__main {
     flex: 1 0 50%;
     margin: 0;
