@@ -3,25 +3,16 @@ body {
     margin: 0;
 }
 
-/* .main {
+.main {
     display: flex;
     flex-direction: column;
-} */
+    height: auto;
+}
 
 .section__main {
     display: flex;
     flex-direction: row;
     width: 100%;
+    flex-wrap: nowrap;
 }
 
-.section__info {
-    flex-basis: 50%;
-
-    background: orange;
-}
-
-.section__img {
-    flex-basis: 50%;
-
-    background: red;
-}
