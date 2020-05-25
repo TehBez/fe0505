@@ -12,6 +12,18 @@
     color: #242635;
 }
 
+/* Лупа */
+.fas  {
+    cursor: pointer;
+}
+
+.fas .fa-search {
+    font-weight: 400;
+    font-size: 14px;
+
+    color: #242635;
+}
+
 h1 {
     font-family: 'Nunito', sans-serif;
     font-weight: 900;
@@ -33,7 +45,9 @@ h1 {
 
 .footer__info {
     background: #242635;
+}
 
+.footer-text {
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
     font-size: 18px;
@@ -43,3 +57,14 @@ h1 {
 
     color: #FFFFFF;
 }
+
+/* Стрелка */
+.fa-long-arrow-alt-right {
+    font-weight: 600;
+    font-size: 18px;
+    
+    color: #FFFFFF;
+
+    cursor: pointer;
+}
+
