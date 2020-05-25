@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     height: auto;
+    width: 100%;
 }
 
 .section__main {
@@ -14,5 +15,19 @@ body {
     flex-direction: row;
     width: 100%;
     flex-wrap: nowrap;
+    align-items: stretch;
 }
 
+.section__info {
+    flex-basis: auto;
+    flex-grow: 1;
+
+    position: relative;
+}
+
+.section__img {
+    flex-basis: auto;
+    flex-grow: 1;
+
+    position: relative;
+}
