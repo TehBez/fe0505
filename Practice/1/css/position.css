@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -12,22 +16,17 @@ body {
 
 .section__main {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap: nowrap;
     align-items: stretch;
 }
 
 .section__info {
-    flex-basis: auto;
-    flex-grow: 1;
+    flex: 1 0 50%;
 
     position: relative;
 }
 
 .section__img {
-    flex-basis: auto;
-    flex-grow: 1;
+    flex: 1 0 50%;
 
     position: relative;
 }
