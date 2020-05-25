@@ -1,0 +1,31 @@
+h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 85px;
+    line-height: 90px;
+
+    color: #242635;
+}
+
+.main-text {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #64667A;
+}
+
+
+.footer__info {
+    background: #242635;
+
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}

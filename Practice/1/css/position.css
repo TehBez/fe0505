@@ -14,19 +14,54 @@ body {
     width: 100%;
 }
 
+/* Основное поле */
 .section__main {
     display: flex;
     align-items: stretch;
 }
 
+/* Поле информации */
 .section__info {
     flex: 1 0 50%;
+    position: relative;
+
+    padding: 4% 10% 8% 7%;
+}
+
+.lupa {
+    height: 17px;
+    width: 17px;
+}
+
+
+/* Поле картинки */
+.section__img {
+    flex: 1 0 50%;
+    padding: 0;
+    margin: 0;
 
     position: relative;
 }
 
-.section__img {
-    flex: 1 0 50%;
 
+/* Поле подвала */
+.section__footer {
+    display: flex;
+    align-items: stretch;
+}
+
+.footer__info {
+    flex: 1 0 50%;
+    position: relative;
+}
+
+.goes {
+    fill: white;
+    height: 16px;
+    width: 40px;
+}
+
+.section__img-footer {
+    flex: 1 0 50%;
     position: relative;
 }
