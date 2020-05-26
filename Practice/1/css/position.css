@@ -79,7 +79,7 @@ body {
     background: url(../img/imgMain.jpg);
     background-position: center;
     background-size: cover;
-}
+} 
 
 .main-img {
     flex: 1 0 100%;
@@ -90,7 +90,6 @@ body {
     .main {
         width: 100%;
         flex-direction: column;
-        height: auto;
     }
     
     /* Левая секция */
@@ -143,11 +142,12 @@ body {
         /* flex: 1 0 100%; */
 
         display: flex;
-        background: url(../img/imgMain.jpg);
+        background: url(../img/imgMain2x.jpg);
         background-position: center;
         background-size: cover;
-        width: 100%;
-        height: max-content;
+        /* width: 100%;
+        height: max-content; */
+        height: 150px;
     }
     
     .main-img {
