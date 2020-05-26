@@ -59,18 +59,14 @@ a {
     text-decoration: none;
 }
 
-a:active {
-    transform: scale(1.5);
-}
-
-a:hover {
-    color: green;
-}
-
 
 /* Лупа */
-.find-link {
+.logo__field a {
     color: #242635;
+}
+
+.logo__field a:hover {
+    color: green;
 }
 
 .fas .fa-search {
@@ -80,11 +76,15 @@ a:hover {
 
 
 /* Стрелка */
+.footer__info a {
+    color: white;
+}
+
+.footer__info a:hover {
+    color: green;
+}
+
 .fas .fa-long-arrow-alt-right {
     font-weight: 600;
     font-size: 18px;
-}
-
-.arrow-link {
-    color: #FFFFFF;
 }

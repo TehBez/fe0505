@@ -36,7 +36,7 @@ body {
 }
 
 .main__info {
-    flex: 1 0 100%;
+    flex: 1 0 (100%-162px);
 
     padding: 5% 15% 7%;
     
