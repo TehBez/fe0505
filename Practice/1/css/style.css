@@ -68,6 +68,7 @@ a {
 /* Лупа */
 .logo__field a {
     color: #242635;
+    margin-left: 15px;
 }
 
 .logo__field a:hover {

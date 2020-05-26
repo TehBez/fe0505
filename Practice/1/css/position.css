@@ -96,10 +96,14 @@ body {
     /* Левая секция */
     .section__left {
         flex: 1 0 100%;
+        /* width: 100%;
+        height: max-content; */
     }
     
     .main__info {
-        flex: 1 0 100%;
+        /* flex: 1 0 100%; */
+        width: 100%;
+        height: max-content;
     
         padding: 1% 1% 1%;
     }
@@ -117,7 +121,8 @@ body {
     }
     
     .p__field {
-        flex: 1 0 55%;
+        flex: 1 0 40%;
+        justify-content: center;
         align-items: center;
         text-align: center;
     }
@@ -135,12 +140,14 @@ body {
     
     /* Правая секция */
     .img__main {
-        flex: 1 0 100%;
+        /* flex: 1 0 100%; */
 
         display: flex;
         background: url(../img/imgMain.jpg);
         background-position: center;
         background-size: cover;
+        width: 100%;
+        height: max-content;
     }
     
     .main-img {
