@@ -81,9 +81,9 @@ body {
     background-size: cover;
 } 
 
-.main-img {
+/* .main-img {
     flex: 1 0 100%;
-}
+} */
 
 
 @media (max-width: 960px) {
@@ -94,9 +94,10 @@ body {
     
     /* Левая секция */
     .section__left {
-        flex: 1 0 100%;
-        /* width: 100%;
-        height: max-content; */
+        /* flex: 1 0 100%; */
+        display: block;
+        width: 100%;
+        height: max-content;
     }
     
     .main__info {
@@ -141,16 +142,13 @@ body {
     .img__main {
         /* flex: 1 0 100%; */
 
-        display: flex;
+        display: block;
         background: url(../img/imgMain2x.jpg);
         background-position: center;
         background-size: cover;
         /* width: 100%;
         height: max-content; */
+        width: 100%;
         height: 150px;
-    }
-    
-    .main-img {
-        flex: 1 0 100%;
     }
 }
