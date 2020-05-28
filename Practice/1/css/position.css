@@ -88,8 +88,8 @@ body {
 
 @media (max-width: 960px) {
     .main {
+        display: block;
         width: 100%;
-        flex-direction: column;
     }
     
     /* Левая секция */
@@ -143,7 +143,7 @@ body {
         /* flex: 1 0 100%; */
 
         display: block;
-        background: url(../img/imgMain2x.jpg);
+        background-image: url(../img/imgMain2x.jpg);
         background-position: center;
         background-size: cover;
         /* width: 100%;
