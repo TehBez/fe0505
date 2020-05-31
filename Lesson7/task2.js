@@ -31,7 +31,7 @@ console.log(grade);
 console.log( 'Имя учащегося с максимальным количеством баллов: ', getLeader(grade).name );
 console.log( 'максимальный балл: ', getLeader(grade).value );
 console.log( 'средний балл: ', getAverage(grade) );
-console.log( 'Имя учащегося с баллом ближайшим к среднему: ', getNearestAverage(grade) );
+console.log( 'Имя учащегося с баллом ближайшим к среднему: ', getNearestAverage(grade).name,  getNearestAverage(grade).value );
 console.log( 'учащихся с баллом ниже среднего: ', getPeopleWithMaxGrade(grade, getAverage(grade)) );
 console.log( 'winners: ', getWinners(grade) );
 
@@ -96,25 +96,28 @@ function getAverage(grade) {
     // console.log('getEntries', getEntries(grade));
 }
 
+
+// 4. Указать учащегося с баллом ближайшим к среднему. (дома)
 function getNearestAverage(grade) {
-    const values = Object.values(grade);
-    const sum = values.reduce(
-        function(acc, el) {
-            return acc + el;
-        },
-    );
-    const intr =  sum / values.length;
     
-    let deff = 100;
-    let result = 0;
+    const intr = getAverage(grade);
+    
+    let diff = Infinity;
+    let NearestAverage = 0;
+    let AvarageName = '';
+
     
     for (const name in grade) {
-        if (Math.abs(intr - grade[name]) <= deff) {
-            deff = Math.abs(intr - grade[name]);
-            result = name;
+        if (Math.abs(intr - grade[name]) <= diff) {
+            diff = Math.abs(intr - grade[name]);
+            AvarageName = name;
+            NearestAverage = grade[name];
         }
     }
-    return result;
+    return {
+    name: AvarageName,
+    value: NearestAverage
+    }
 }
 
 

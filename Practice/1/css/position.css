@@ -21,19 +21,14 @@ body {
 
     display: flex;
     flex-direction: column;
-
-    box-sizing: border-box;
 }
 
 .main__info {
-    flex: 1 0 100%;
-
     padding: 5% 15% 7%;
     
     display: flex;
     flex-direction: column;
-
-    box-sizing: border-box;
+    height: 85vh;
 }
 
 .logo__field {
@@ -59,7 +54,7 @@ body {
 }
 
 .footer__info {
-    flex: 0 0 162px;
+    flex: 0 0 15vh;
 
     padding-left: 15%;
     padding-right: 15%;
@@ -75,15 +70,15 @@ body {
     flex: 1 0 50%;
     margin: 0;
 
+    height: 85vh; /* так же высота у vh равна высоте контента */
+
     display: flex;
+    
     background: url(../img/imgMain.jpg);
     background-position: center;
     background-size: cover;
 } 
 
-/* .main-img {
-    flex: 1 0 100%;
-} */
 
 
 @media (max-width: 960px) {
@@ -94,14 +89,12 @@ body {
     
     /* Левая секция */
     .section__left {
-        /* flex: 1 0 100%; */
         display: block;
         width: 100%;
         height: max-content;
     }
     
     .main__info {
-        /* flex: 1 0 100%; */
         width: 100%;
         height: max-content;
     
@@ -140,15 +133,12 @@ body {
     
     /* Правая секция */
     .img__main {
-        /* flex: 1 0 100%; */
-
         display: block;
-        background-image: url(../img/imgMain2x.jpg);
+
         background-position: center;
         background-size: cover;
-        /* width: 100%;
-        height: max-content; */
+
         width: 100%;
-        height: 150px;
+        height: 40vh;
     }
 }

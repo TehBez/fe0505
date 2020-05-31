@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../NYTIMER/snow-new-year-christmas-tree.jpg);
+}
+
+.text-main {
+    margin-top: 7%;
+    padding-bottom: 7%;
+    text-align: center;
+
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 5rem;
+    text-shadow: 1px 1px 2px rgb(96, 226, 243), 0 0 1em rgb(255, 255, 255);
+    color: white;
+}
+
+#t {
+    display: block;
+    text-align: center;
+
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 3rem;
+    text-shadow: 1px 1px 2px white, 0 0 1em rgb(255, 255, 255);
+    color: rgb(96, 226, 243);
+    
+}
