@@ -24,15 +24,15 @@ const timerId = setInterval(function() {
 
 	// и вывести результат
 	let timerToNewYear = tDay + " дней " + tHour + " часов " + tMinutes + " минут " + tSeconds + " секунд";
-	console.log(timerToNewYear);
 
+	// получим элемент
 	const timer = document.querySelector('#timeToNewYear'); 
-	// timer = timerToNewYear;
-	console.log(timer);
+
+	// установим элементам с id: timeToNewYear свойство innerHTML со значением timerToNewYear:
+	timer.innerHTML = timerToNewYear;
 	
 }, 1000);
 
-console.log(timerId);
 
 // по окончанию счетчика, мы должны остановить отсчет, с помощью clearInterval();
 // остановить вывод через N-секунд
