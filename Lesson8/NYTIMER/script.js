@@ -1,24 +1,38 @@
 // План действий:
-// нужно задать дату к которой мы будем считать время. задаем с помощью  new Date("Jan 1, 2021 00:00:00").getTime();
-var finalDate = new Date("Jan 1, 2021 00:00:00").getTime();
+// нужно задать дату к которой мы будем считать время
+const finalDate = new Date("Jan 1, 2021 00:00:00").getTime();
 
 // далее прописываем функцию, которая будет обновляться каждую секунду
-var timerId = setInterval(function() {
-	// внутри функции нам нужно задать текущую дату, и дистанцию от текущей даты к цели
-	currentDate = new Date();
+const timerId = setInterval(function() {
 	
-	// просчитать дни, часы, минуты, секунды ... 
-	tDay = finalDate.getDate() - currentDate.getDate();
-	tHour = finalDate.getHours() - currentDate.getHours();
-	tMinutes = finalDate.getMinutes() - currentDate.getMinutes();
-	tSeconds = finalDate.getSeconds() - currentDate.getSeconds();
+	// внутри функции нам нужно задать текущую дату, и дистанцию от текущей даты к цели
+	let currentDate = new Date();
+
+	let distance = finalDate - currentDate;
+	
+	// просчитать дни
+	let tDay = Math.floor((finalDate - currentDate) / 1000 / 60 / 60 / 24);
+	
+	// часы
+	let tHour = 24 - (currentDate.getHours() + 1 );
+	
+	// минуты
+	let tMinutes = 60 - (currentDate.getMinutes() + 1);
+
+	// секунды ... 
+	let tSeconds = 60 - (currentDate.getSeconds() + 1);
 
 	// и вывести результат
-	timerToNewYear = tDay + " дней " + tHour + " часов " + tMinutes + " минут " + tSeconds + " секунд";
+	let timerToNewYear = tDay + " дней " + tHour + " часов " + tMinutes + " минут " + tSeconds + " секунд";
+	console.log(timerToNewYear);
 
-	// находим наш идентификатор в документе и присваиваем значение
-	document.querySelector("#timeToNewYear") = timerToNewYear;
+	const timer = document.querySelector('#timeToNewYear'); 
+	// timer = timerToNewYear;
+	console.log(timer);
+	
 }, 1000);
+
+console.log(timerId);
 
 // по окончанию счетчика, мы должны остановить отсчет, с помощью clearInterval();
 // остановить вывод через N-секунд
