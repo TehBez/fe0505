@@ -1,18 +1,25 @@
-// Задаём конечную дату
-timeend = new Date();
-timeend = new Date(timeend.getYear()>1900?(timeend.getYear()+1):(timeend.getYear()+1901),0,1);
+// План действий:
+// нужно задать дату к которой мы будем считать время. задаем с помощью  new Date("Jan 1, 2021 00:00:00").getTime();
+var finalDate = new Date("Jan 1, 2021 00:00:00").getTime();
 
-// Функция таймера
-function time() {
-	today = new Date();
-	today = Math.floor((timeend-today)/1000);
-	tsec = today % 60; today = Math.floor(today/60); if(tsec<10)tsec = '0' + tsec;
-	tmin = today % 60; today = Math.floor(today/60); if(tmin<10)tmin = '0' + tmin;
-	thour = today % 24; today = Math.floor(today/24);
-	timestr = today + " дней " + thour + " часов " + tmin + " минут " + tsec + " секунд";
+// далее прописываем функцию, которая будет обновляться каждую секунду
+var timerId = setInterval(function() {
+	// внутри функции нам нужно задать текущую дату, и дистанцию от текущей даты к цели
+	currentDate = new Date();
+	
+	// просчитать дни, часы, минуты, секунды ... 
+	tDay = finalDate.getDate() - currentDate.getDate();
+	tHour = finalDate.getHours() - currentDate.getHours();
+	tMinutes = finalDate.getMinutes() - currentDate.getMinutes();
+	tSeconds = finalDate.getSeconds() - currentDate.getSeconds();
 
-	document.getElementById('t').innerHTML = timestr; // почитать ещё про getElementById, innerHTML
+	// и вывести результат
+	timerToNewYear = tDay + " дней " + tHour + " часов " + tMinutes + " минут " + tSeconds + " секунд";
 
-	window.setTimeout("time()", 1000); // почитать ещё про window.setTimeout
-}
+	// находим наш идентификатор в документе и присваиваем значение
+	document.querySelector("#timeToNewYear") = timerToNewYear;
+}, 1000);
 
+// по окончанию счетчика, мы должны остановить отсчет, с помощью clearInterval();
+// остановить вывод через N-секунд
+setTimeout(() => { clearInterval(timerId); alert('Happy New Year!'); }, finalDate - new Date());
