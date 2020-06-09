@@ -121,6 +121,7 @@ function getFamilys() {
         );
 }
 
+// получаем детей
 function getChildren(motherName, fatherName, data) {  
     return data.filter (human => human.mother === motherName && human.father === fatherName);
 }
@@ -128,9 +129,9 @@ function getChildren(motherName, fatherName, data) {
 function task3() {  
     const familys = ANCESTRY_DATA
     .map(
-        function(parents) {
-            const parents = getFamilys();
-            return parents; 
+        function(families) {
+            const peoples = getFamilys(families);
+            return peoples; 
         }) // инициализация нашего массива родителей (возвращаем parents)
     .filter(
         function (parents) {
