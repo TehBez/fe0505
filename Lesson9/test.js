@@ -1,46 +1,23 @@
-// средняя разница в возрасте между матерями и их детьми.
-// функция1, которая возвращает год рождения человека
-function getBorn(human) {
-    return human.born;
-}
-
-// функция2, которая возвращает имя матери
-function getMother(human) {
-    return human.mother;
-}
-
-// функция2, которая возвращает год рождения матери
-function getMotherBorn(human) {
-    let nameMother = getMother();
-    let motherBorn = getBorn(nameMother);
-    return motherBorn;
-};
-
-// функция3, которая возвращает массив с разницей в возрасте между матерями и их детьми. Вопрос 3. Нужно в наборе значений сопоставить имена детей с матерями и получить  ту самую разницу, которую добавить в массив
-function getDifferentArr () {
-    return ANCESTRY_DATA
-    .reduce(
-        function (human) {
-           const childBorn = getBorn();
-           const motherBorn = getMotherBorn();
-
-           let arr = [];
-           arr.push(childBorn - motherBorn);
-           return arr;
-        },
-        {}
-    );
-}
-
-console.log( getDifferentArr() );
-
-
-// функция4, которая возвращает среднюю разницу в возрасте
-function getArrAverage(arr) {
-    return arr.reduce(
-        function(sum, el) {
-            return sum + el;
-        },
-        0
-    ) / arr.length; 
-}
+function task3() {  
+    const familys = ANCESTRY_DATA
+    .map(
+        function(parents) {
+            const parents = getFamilys();
+            return parents; 
+        }) // инициализация нашего массива родителей (возвращаем parents)
+    .filter(
+        function (parents) {
+            return parents !== null; // фильтр - возращаем всё, где значение не null
+        })
+    .map(
+        function (family) {              
+            family.children = getChildren(family.mother.name, family.father.name, ANCESTRY_DATA); //создаем новый массив семьи, передаем данные функции выше.  дети формируются если родители совпадают
+            return family; // тут не понятно... присваиваем данные функции family.children (вот тут вопрос! .children - это метод или свойство?)  - возврат массива семей       
+        }); 
+    const childrenCounts = familys
+    .map(         
+        function(family) {
+            return family.children.length;
+        }); // создаем массив с детьми (я так полагаю с их количеством??)
+    return getAverage( childrenCounts ); //вычисляем среднее число детей
+}              

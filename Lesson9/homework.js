@@ -55,7 +55,7 @@ function task2() {
 console.log ( "task2", task2() );
 
 
-// среднее количество детей в семье ???
+// среднее количество детей в семье
 function getFamily(human) {
     const mother = getHuman(human.mother),
         father = getHuman(human.father),
@@ -72,7 +72,7 @@ function getFamily(human) {
     }
 }
 
-function getUniqFamily() {
+function getUniqFamily() { 
     const data = ANCESTRY_DATA.map(getFamily),
         keys = {
             'null-null': true
@@ -104,7 +104,7 @@ function getFamilyKey(human) {
 }
 
 function getFamilys() {
-    const families = ANCESTRY_DATA
+    return ANCESTRY_DATA
         .reduce(
             function(families, human) {
                 const familyKey = getFamilyKey(human);
@@ -119,12 +119,38 @@ function getFamilys() {
             },
             {}
         );
-    for (const famili in families) {
-        families[famili] = getArrAverage(families[famili]);
-    }
-
-    return families;    
 }
+
+function getChildren(motherName, fatherName, data) {  
+    return data.filter (human => human.mother === motherName && human.father === fatherName);
+}
+
+function task3() {  
+    const familys = ANCESTRY_DATA
+    .map(
+        function(parents) {
+            const parents = getFamilys();
+            return parents; 
+        }) // инициализация нашего массива родителей (возвращаем parents)
+    .filter(
+        function (parents) {
+            return parents !== null; // фильтр - возращаем всё, где значение не null
+        })
+    .map(
+        function (family) {              
+            family.children = getChildren(family.mother.name, family.father.name, ANCESTRY_DATA); //создаем новый массив семьи, передаем данные функции выше.  дети формируются если родители совпадают
+            return family; // тут не понятно... присваиваем данные функции family.children (вот тут вопрос! .children - это метод или свойство?)  - возврат массива семей       
+        }); 
+    const childrenCounts = familys
+    .map(         
+        function(family) {
+            return family.children.length;
+        }); // создаем массив с детьми (я так полагаю с их количеством??)
+    return getAverage( childrenCounts ); //вычисляем среднее число детей
+}
+
+
+console.log( 'task3', task3() );
 
 console.log( 'getDataWithFamilyKey', getDataWithFamilyKey() );
 console.log( 'getFamilys', getFamilys() );
