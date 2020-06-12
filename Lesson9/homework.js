@@ -14,7 +14,7 @@ console.log(ANCESTRY_DATA);
 
 function task1() {
     const ageDiff = ANCESTRY_DATA.map(function(human) {
-        const mother = getHuman(human.mother); 
+        const mother = getHuman(human.mother);
         const child = getHuman(human.name);
 
         if (mother && child) {
@@ -39,7 +39,7 @@ function getHuman(name) {
 
 function task2() {
     const ageDiff = ANCESTRY_DATA.map(function(human) {
-        const mother = getHuman(human.mother), 
+        const mother = getHuman(human.mother),
             father = getHuman(human.father);
 
         if (mother && father) {
@@ -72,7 +72,7 @@ function getFamily(human) {
     }
 }
 
-function getUniqFamily() { 
+function getUniqFamily() {
     const data = ANCESTRY_DATA.map(getFamily),
         keys = {
             'null-null': true
@@ -122,34 +122,34 @@ function getFamilys() {
 }
 
 // получаем детей
-function getChildren(motherName, fatherName, data) {  
-    return data.filter (human => human.mother === motherName && human.father === fatherName);
+function getChildren(motherName, fatherName, data) {
+    return data.filter(human => human.mother === motherName && human.father === fatherName);
 }
 
-function task3() {  
+function task3() {
     const familys = ANCESTRY_DATA
     .map(
         function(families) {
             const peoples = getFamilys(families);
-            return peoples; 
+            return peoples;
         }) // инициализация нашего массива родителей (возвращаем parents)
     .filter(
-        function (parents) {
-            return parents !== null; // фильтр - возращаем всё, где значение не null
+        function (peoples) {
+            return peoples !== null; // фильтр - возращаем всё, где значение не null
         })
     .map(
-        function (family) {              
+        function (family) {
             family.children = getChildren(family.mother.name, family.father.name, ANCESTRY_DATA); //создаем новый массив семьи, передаем данные функции выше.  дети формируются если родители совпадают
             return family; // тут не понятно... присваиваем данные функции family.children (вот тут вопрос! .children - это метод или свойство?)  - возврат массива семей       
-        }); 
+        });
+
     const childrenCounts = familys
-    .map(         
+    .map(
         function(family) {
             return family.children.length;
-        }); // создаем массив с детьми (я так полагаю с их количеством??)
-    return getAverage( childrenCounts ); //вычисляем среднее число детей
+        }); // создаем массив с детьми
+    return getArrAverage( childrenCounts ); //вычисляем среднее число детей
 }
-
 
 console.log( 'task3', task3() );
 
@@ -165,7 +165,7 @@ console.log( 'getFamilysConverted',
 );
 
 
-// - [X] средний возраст людей для каждого из столетий. 
+// - [X] средний возраст людей для каждого из столетий.
 // Назначаем столетию людей, беря их год смерти, деля его на 100 и округляя: `Math.ceil(person.died / 100)`.
 
 function getAge(human) {
