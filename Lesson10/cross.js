@@ -44,7 +44,68 @@ class CrossGame {
 
     isWin() {
         // homework
-    }
+        if (this.currentUser === USERS[0]) {
+            switch (this.currentUser) {
+                case (this.board[0] === this.board[1] && this.board[0] === this.board[2]):
+                    return true;
+                    break;
+                case (this.board[3] === this.board[4] && this.board[3] === this.board[5]):
+                    return true;
+                    break;
+                case (this.board[6] === this.board[7] && this.board[6] === this.board[8]):
+                    return true;
+                    break;
+                case (this.board[0] === this.board[3] && this.board[0] === this.board[6]):
+                    return true;
+                    break;
+                case (this.board[1] === this.board[4] && this.board[1] === this.board[7]):
+                    return true;
+                    break;
+                case (this.board[2] === this.board[5] && this.board[2] === this.board[8]):
+                    return true;
+                    break;
+                case (this.board[0] === this.board[4] && this.board[0] === this.board[8]):
+                    return true;
+                    break;
+                case (this.board[2] === this.board[4] && this.board[2] === this.board[6]):
+                    return true;
+                    break;
+                default:
+                    return false;
+                    break;
+                }
+            } else if (this.currentUser === USERS[1]) {
+                switch (this.currentUser) {
+                case (this.board[0] === this.board[1] && this.board[0] === this.board[2]):
+                    return true;
+                    break;
+                case (this.board[3] === this.board[4] && this.board[3] === this.board[5]):
+                    return true;
+                    break;
+                case (this.board[6] === this.board[7] && this.board[6] === this.board[8]):
+                    return true;
+                    break;
+                case (this.board[0] === this.board[3] && this.board[0] === this.board[6]):
+                    return true;
+                    break;
+                case (this.board[1] === this.board[4] && this.board[1] === this.board[7]):
+                    return true;
+                    break;
+                case (this.board[2] === this.board[5] && this.board[2] === this.board[8]):
+                    return true;
+                    break;
+                case (this.board[0] === this.board[4] && this.board[0] === this.board[8]):
+                    return true;
+                    break;
+                case (this.board[2] === this.board[4] && this.board[2] === this.board[6]):
+                    return true;
+                    break;
+                default:
+                    return false;
+                    break;
+                }
+            }
+        }
 
     render() {
         let result = ``;
@@ -75,5 +136,8 @@ console.log( game );
 game.render(); // this = game
 game.step(0); // this = game
 game.step(4); // error
+game.step(1);
+game.step(6);
+game.step(2);
 
 console.log( game );

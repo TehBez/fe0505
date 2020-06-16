@@ -56,113 +56,46 @@ console.log ( "task2", task2() );
 
 
 // среднее количество детей в семье
-function getFamily(human) {
-    const mother = getHuman(human.mother),
-        father = getHuman(human.father),
-        children = ANCESTRY_DATA.filter(function(child) {
-            return child.mother === human.name || child.father === human.name;
-        });
 
-    return {
-        human,
-        mother,
-        father,
-        children,
-        key: getFamilyKey(human)
+//определяем имена матерей и отцов
+function getParents( human, data ) {
+    const mother = getHuman(human.mother, data), // имя матери
+      father = getHuman(human.father, data); // имя отца
+    if (!mother || !father) {
+        return null; // если нет данных возвращаем null
     }
-}
-
-function getUniqFamily() {
-    const data = ANCESTRY_DATA.map(getFamily),
-        keys = {
-            'null-null': true
-        };
-
-    return data.filter(function(family) {
-        const familyKey = family.key,
-            isUniq = !keys[familyKey];
-
-        keys[familyKey] = true;
-
-        return isUniq;
-    });
-}
-
-console.log( 'getFamily', ANCESTRY_DATA.map(getFamily) );
-console.log( 'getUniqFamily', getUniqFamily() );
-
-function getDataWithFamilyKey() {
-    return ANCESTRY_DATA.map(function(human) {
-        return Object.assign({}, human, {
-            familyKey: `${human.father}-${human.mother}`
-        });
-    });
-}
-
-function getFamilyKey(human) {
-    return `${human.father}-${human.mother}`;
-}
-
-function getFamilys() {
-    return ANCESTRY_DATA
-        .reduce(
-            function(families, human) {
-                const familyKey = getFamilyKey(human);
-
-                if (!Array.isArray(families[familyKey])) {
-                    families[familyKey] = [];
-                }
-
-                families[familyKey].push(human);
-
-                return families;
-            },
-            {}
-        );
-}
+    return {father, mother} // если все ок, возвращаем родителей
+  }
 
 // получаем детей
-function getChildren(motherName, fatherName, data) {
-    return data.filter(human => human.mother === motherName && human.father === fatherName);
+function getChildren( motherName, fatherName, data ) {
+    return data.filter(function ( human ) {
+      return human.mother === motherName && human.father === fatherName
+    });
 }
 
-function task3() {
-    const familys = ANCESTRY_DATA
-    .map(
-        function(families) {
-            const peoples = getFamilys(families);
-            return peoples;
-        }) // инициализация нашего массива родителей (возвращаем parents)
+function task3( data ) { // передаем данные функции - data.
+    const familys = data.map(function ( human ) {
+        return getParents(human, data)
+    })
     .filter(
-        function (peoples) {
-            return peoples !== null; // фильтр - возращаем всё, где значение не null
+        function ( parents ) {
+            return parents !== null; // фильтр - возращаем всё, где значение не null
         })
     .map(
         function (family) {
-            family.children = getChildren(family.mother.name, family.father.name, ANCESTRY_DATA); //создаем новый массив семьи, передаем данные функции выше.  дети формируются если родители совпадают
-            return family; // тут не понятно... присваиваем данные функции family.children (вот тут вопрос! .children - это метод или свойство?)  - возврат массива семей       
+            family.children = getChildren(family.mother.name, family.father.name, data); // создаем в каждом обекте ключ children, которому присваиваем значение вычесляемое в функции  getChildren, где мы определили детей
+            return family;
         });
 
-    const childrenCounts = familys
-    .map(
-        function(family) {
-            return family.children.length;
-        }); // создаем массив с детьми
-    return getArrAverage( childrenCounts ); //вычисляем среднее число детей
+    const childrenCounts = familys.map(function ( family ) {
+        return family.children.length // возвращаем количество детей
+    });
+
+    return getArrAverage(childrenCounts); //полсчитываем среднее количесво детей передавая в функцию getArrAverage количесво детей
 }
 
-console.log( 'task3', task3() );
-
-console.log( 'getDataWithFamilyKey', getDataWithFamilyKey() );
-console.log( 'getFamilys', getFamilys() );
-console.log( 'getFamilysConverted',
-    Object.entries( getFamilys() )
-        .filter(function(familyData) {
-            const familyKey = familyData[0];
-
-            return familyKey !== 'null-null';
-        })
-);
+console.log( 'task3', task3(ANCESTRY_DATA) );
 
 
 // - [X] средний возраст людей для каждого из столетий.
