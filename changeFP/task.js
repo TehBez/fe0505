@@ -1,28 +1,36 @@
+// дата !
+
 const DOUBLE_CLICK_TIME = 600;
 
 export class Task {
-  constructor (props) {
+  constructor(props) {
     this._props = props;
 
-    const { id, completed = false, title } = props.task;
+    const {
+      id,
+      completed = false,
+      title
+      // data
+    } = props.task;
 
     this._id = id || Date.now();
     this._completed = completed;
     this._title = title;
+    // this._dataEl = data;
     this._lastTryToEditTime = null;
     this._editMode = false;
     this.createElement();
   }
 
-  getId () {
+  getId() {
     return this._id;
   }
 
-  getCompleted () {
+  getCompleted() {
     return this._completed;
   }
 
-  change (newTaskData) {
+  change(newTaskData) {
     if ('completed' in newTaskData) {
       this._completed = newTaskData.completed;
     }
@@ -31,20 +39,25 @@ export class Task {
       this._title = newTaskData.title;
     }
 
+    // if ('data' in newTaskData) {
+    //   this._dataEl = newTaskData.data;
+    // }
+
     this.setEditMode(false);
   }
 
-  setEditMode (editMode) {
+  setEditMode(editMode) {
     this._editMode = editMode;
 
     if (editMode) {
       this._editInput.value = this._title;
+      // this._editData.value = this._dataEl;
     }
 
     this.render();
   }
 
-  createElement () {
+  createElement() {
     this._viewEl = this.createViewEl();
     this._editEl = this.createEditEl();
 
@@ -52,7 +65,7 @@ export class Task {
     this._el.append(this._viewEl, this._editEl);
   }
 
-  createEditEl () {
+  createEditEl() {
     const el = document.createElement('form');
     const input = document.createElement('input');
     const submitBtn = document.createElement('button');
@@ -70,7 +83,7 @@ export class Task {
     return el;
   }
 
-  createViewEl () {
+  createViewEl() {
     const el = document.createElement('div');
     const input = document.createElement('input');
     const text = document.createElement('span');
@@ -94,7 +107,7 @@ export class Task {
     return el;
   }
 
-  onTryToEdit () {
+  onTryToEdit() {
     if (!this._lastTryToEditTime) {
       this._lastTryToEditTime = Date.now();
     } else if (DOUBLE_CLICK_TIME > Date.now() - this._lastTryToEditTime) {
@@ -105,7 +118,7 @@ export class Task {
     }
   }
 
-  onDestroy () {
+  onDestroy() {
     this._el.remove();
 
     if (this._props.onDestroy) {
@@ -113,7 +126,7 @@ export class Task {
     }
   }
 
-  onChangeComplete (event) {
+  onChangeComplete(event) {
     const completed = event.target.checked;
 
     if (this._props.onComplete) {
@@ -121,7 +134,7 @@ export class Task {
     }
   }
 
-  onChangeTask (event) {
+  onChangeTask(event) {
     event.preventDefault();
 
     const newTitle = this._editInput.value;
@@ -132,7 +145,7 @@ export class Task {
     }
   }
 
-  render () {
+  render() {
     if (this._editMode) {
       this._el.classList.add('editing');
     } else {
