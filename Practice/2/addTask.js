@@ -1,54 +1,55 @@
-// Начинаем делать всё с функции конструктора
+import {
+    CustomEvents
+} from './customEvents.js';
 
-// new AddForm при вызове в index.js создаёт контекст this (который мы используем при описании самой функции)
+export class AddTaskForm {
+    constructor(props) {
+        this._props = props;
+        this._formEl = document.querySelector('.header');
+        this._completeEl = this._formEl.querySelector('.complete-all');
+        this._taskEl = this._formEl.querySelector('.new-todo');
 
-function AddForm(props) { // передаём в конструктор свойства props
-    // this = {}
+        this._formEl.addEventListener('submit', this.onSubmit.bind(this));
+        this._completeEl.addEventListener('change', this.onComplete.bind(this));
 
-    this._props = props; // сохраняем свойства props
-    this._el = document.querySelector('.header');
-    this._completeEl = this._el.querySelector('.complete-all');
-    this._todoEl = this._el.querySelector('.new-todo');
+        this.events = new CustomEvents();
+        this.events.registerEvents('complete');
+        this.events.registerEvents('add');
+    }
 
-    // ДАТА
-    this._dataEl = this._el.querySelector('.deadline');
-
-    // перехватываем/прослушиваем событие (нажатие на кнопку btn) и вызываем функцию addTask при нажатии
-    this._el.addEventListener('submit', addTask.bind(this)); // изменяет существующий контекст - контекст выполнения
-
-    // генерируем саму функцию, в которой аргументом передаём объект событие
-    function addTask(event) {
-        event.preventDefault(); // исключает перезагрузку страницы
+    onComplete(event) {
+        const completed = this._completeEl.checked;
         const {
-            _completeEl,
-            _todoEl,
-            _dataEl
-        } = this; // _completeEl = this._completeEl; _todoEl = this._todoEl;
-        const task = {
-            id: Date.now(),
-            title: _todoEl.value,
-            data: _dataEl.value,
-            completed: _completeEl.checked,
-        };
+            onComplete
+        } = this._props;
 
-        console.log(task);
-        // onAddTask(task) - при таком вызове this = underfined
-        // onAddTask.call(this, task); // передаем this для нахождения _todoEl
-        if (task.title.length > 0) {
-            onAddTask.apply(this, [task]);
+        if (onComplete) {
+            onComplete(completed);
+        } else {
+            this.events.dispatch('complete', completed);
         }
     }
 
-    function onAddTask(task) {
+    onSubmit(event) {
+        event.preventDefault();
+        const completed = this._completeEl.checked;
+        const title = this._taskEl.value;
+        const currentDate = new Date();
+        const task = {
+            completed,
+            title,
+            createdAt: currentDate.toJSON()
+        };
         const {
-            _todoEl,
-            _dataEl
-        } = this; // функция, которая обнуляет информацию в поле value элемента _todoEl
+            onSubmit
+        } = this._props;
 
-        _todoEl.value = '';
-        _dataEl.value = '';
+        this._taskEl.value = '';
 
-        this._props.onAddTask(task);
+        if (onSubmit) {
+            onSubmit(task);
+        } else {
+            this.events.dispatch('add', task);
+        }
     }
-    // return this; - как правило в таких функциях мы ничего не возвращаем
 }

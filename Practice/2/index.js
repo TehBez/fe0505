@@ -1,64 +1,77 @@
-// создаём форму
-const addForm = new AddForm({
-    onAddTask // объект - первый аргумент вызова функции - функция обратного вызова
+const addTaskForm = new AddForm({
+    onSubmit: onAddTask
+    // onComplete: onAddTaskComplete
 });
 
+addTaskForm.events.addEventListener('complete', onAddTaskComplete);
+// addTaskForm.events.addEventListener('add', onAddTask);
 
-const tasks = new Tasks([{
-        id: 1, // создаём таски и отрисовываем их taskList.render(tasks.getAllTasks());
-        title: 'Task 1',
-        data: '2020-07-01',
-        completed: false
-    },
-    {
-        id: 2,
-        title: 'Task 2',
-        data: '2020-07-01',
-        completed: true
-    }
-]);
+const filter = new Filter({
+    defaultFilter: '#/all',
+    onChangeFilter: onFilterChange
+});
 
-const taskList = new TaskList();
+// filter.events.addEventListener('change', onFilterChange);
 
-taskList.render(tasks.getAllTasks()); // в рендере отрисовываем все таски
+const taskList = new TaskList({
+    filterItems: filteredTask
+});
 
-// taskList.render([ // эти таски помещаем в const tasks = new Tasks()
-//     {
-//         id: 1,
-//         title: 'Task 1',
-//         completed: false
-//     },
-//     {
-//         id: 2,
-//         title: 'Task 2',
-//         completed: true
-//     }
-// ]);
+onFilterChange();
 
-function onAddTask(task) {
-    // tasks.push(task); - вместо него вызываем метод, который написан в tasks
-    const {
-        result,
-        error
-    } = tasks.addTask(task); // результатом будет объект, который мы возвращаем {result, error}
-    // когда вызываем метод addTask, мы вызываем его в объекте tasks - this = tasks
-    // внутри наших функций именно он будет контекстом
+function filteredTask(task) {
+    const currentFilterName = filter.getCurrentFilterName();
 
-    if (result) { // если получаем result = true
-        console.log('task added', tasks.getAllTasks()); // выводим в консоль task added
-        taskList.render(tasks.getAllTasks()); // вызываем отрисовку каждый раз, когда добавляем задачу
-    } else {
-        console.error('task not added', error); // иначе - ошибка
+    switch (currentFilterName) {
+        case '#/active':
+            return task.getCompleted() === false;
+        case '#/completed':
+            return task.getCompleted() === true;
+        default:
+            return true;
     }
 }
 
-// сохранять данные после закрытия и загрузки - серверная часть (работа с сервером?)
-// возможность удалять задачи
-// возможность редактирования добавленных задач
-// фильтр
+function onFilterChange() {
+    taskList.render();
+    filter.setItemsCount(taskList.getActiveTaskCount());
+}
 
-// возможно предусмотреть индикатор (в обычном режиме - зеленый, за сутки до выполнения - жёлтый, просрочка - красный)
+function onAddTask(task) {
+    const taskComponent = new Task({
+        task,
+        tagName: 'li',
+        onComplete: onTaskComplete,
+        onChange: onTaskChange,
+        onDestroy: onTaskDestroy
+    });
 
-// Использовать модули и классы
+    taskList.add(taskComponent);
+    filter.setItemsCount(taskList.getActiveTaskCount());
+}
 
-// не работает hover на корзине
+function onTaskDestroy(taskId) {
+    taskList.filterItems(task => task.getId() !== taskId);
+    filter.setItemsCount(taskList.getActiveTaskCount());
+}
+
+function onTaskChange(taskId, newTitle) {
+    const taskComponent = taskList.find(task => task.getId() === taskId);
+
+    taskComponent.change({
+        title: newTitle
+    });
+}
+
+function onTaskComplete(taskId, completed) {
+    const taskComponent = taskList.find(task => task.getId() === taskId);
+
+    taskComponent.change({
+        completed
+    });
+    filter.setItemsCount(taskList.getActiveTaskCount());
+}
+
+function onAddTaskComplete(completed) {
+    console.log('onAddTaskComplete', completed);
+}
