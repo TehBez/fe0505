@@ -1,36 +1,36 @@
 export class CustomEvents {
-    constructor() {
-        this._events = {};
+  constructor() {
+    this._events = {};
+  }
+
+  registerEvents(eventName) {
+    if (!this._events[eventName]) {
+      this._events[eventName] = [];
+    }
+  }
+
+  getEventsName() {
+    return Object.keys(this._events);
+  }
+
+  addEventListener(eventName, callback) {
+    if (!this._events[eventName]) {
+      this._events[eventName] = [];
     }
 
-    registerEvents(eventName) {
-        if (!this._events[eventName]) {
-            this._events[eventName] = [];
-        }
-    }
+    this._events[eventName].push(callback);
+  }
 
-    getEventsName() {
-        return Object.keys(this._events);
+  removeEventListener(eventName, callback) {
+    if (this._events[eventName]) {
+      this._events[eventName] = this._events[eventName]
+        .filter(eventListener => eventListener !== callback);
     }
+  }
 
-    addEventListener(eventName, callback) {
-        if (!this._events[eventName]) {
-            this._events[eventName] = [];
-        }
-
-        this._events[eventName].push(callback);
+  dispatch(eventName, eventData) {
+    if (this._events[eventName]) {
+      this._events[eventName].forEach(eventListener => eventListener(eventData));
     }
-
-    removeEventListener(eventName, callback) {
-        if (this._events[eventName]) {
-            this._events[eventName] = this._events[eventName]
-                .filter(eventListener => eventListener !== callback);
-        }
-    }
-
-    dispatch(eventName, eventData) {
-        if (this._events[eventName]) {
-            this._events[eventName].forEach(eventListener => eventListener(eventData));
-        }
-    }
+  }
 }

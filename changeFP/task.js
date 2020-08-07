@@ -9,14 +9,14 @@ export class Task {
     const {
       id,
       completed = false,
-      title
-      // data
+      title,
+      data
     } = props.task;
 
     this._id = id || Date.now();
     this._completed = completed;
     this._title = title;
-    // this._dataEl = data;
+    this._dataEl = data;
     this._lastTryToEditTime = null;
     this._editMode = false;
     this.createElement();
@@ -96,6 +96,7 @@ export class Task {
     destroyBtn.className = 'destroy';
 
     text.innerText = this._props.task.title;
+    data.innerText = this._props.task.data;
 
     input.addEventListener('change', this.onChangeComplete.bind(this));
     destroyBtn.addEventListener('click', this.onDestroy.bind(this));

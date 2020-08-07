@@ -2,29 +2,28 @@ import {
     CustomEvents
 } from './customEvents.js';
 
-export class Filter {
-    constructor(props) {
-        this._props = props;
-        this._el = document.querySelector('.footer');
-        this._counterEl = this._el.querySelector('.todo-count strong');
-        this._filters = Array.from(this._el.querySelectorAll('.filters a'));
-        this._availableFilters = this._filters.map(linkEl => linkEl.hash);
-        this._count = props.count || 0;
+function Filter(props) {
+    this._props = props;
+    this._el = document.querySelector('.footer');
+    this._counterEl = this._el.querySelector('.todo-count strong');
+    this._filters = Array.from(this._el.querySelectorAll('.filters a'));
+    this._availableFilters = this._filters.map(linkEl => linkEl.hash);
+    this._count = props.count || 0;
 
-        this._counterEl.innerText = this._count;
+    this._counterEl.innerText = this._count;
 
-        this.changeFilter = this.changeFilter.bind(this);
+    this.changeFilter = this.changeFilter.bind(this);
 
-        this._filters.forEach(linkEl => linkEl.addEventListener('click', this.changeFilter));
+    this._filters.forEach(linkEl => linkEl.addEventListener('click', this.changeFilter));
 
-        this.events = new CustomEvents();
-        this.events.registerEvents('change');
+    this.events = new CustomEvents();
+    this.events.registerEvents('change');
 
-        this.getCurrentFilterFromLocation()
-            .catch(this.getCurrentFilterFromMarkup.bind(this))
-            .catch(this.getDefaultFilter.bind(this))
-            .then(this.setCurrentFilter.bind(this));
-    }
+    this.getCurrentFilterFromLocation()
+        .catch(this.getCurrentFilterFromMarkup.bind(this))
+        .catch(this.getDefaultFilter.bind(this))
+        .then(this.setCurrentFilter.bind(this));
+
 
     getCurrentFilterFromLocation() {
         console.log('getCurrentFilterFromLocation');
@@ -93,4 +92,5 @@ export class Filter {
         this._count = count;
         this._counterEl.innerText = this._count;
     }
+
 }

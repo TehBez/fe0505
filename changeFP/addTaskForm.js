@@ -1,6 +1,6 @@
 import {
   CustomEvents
-} from './customEvents';
+} from './customEvents.js';
 
 export class AddTaskForm {
   constructor(props) {

@@ -40,13 +40,12 @@ function TaskList() {
         li.dataset.id = id;
         view.classList.add('view'); // класс-лист возвращает нам объект у которого есть свойство add
         toggleEl.classList.add('toggle');
-        // toggleEl.type = 'checkbox'; - работает не со всеми аттрибутами
         toggleEl.setAttribute('type', 'checkbox'); // setAttribute работает всегда ?
         toggleEl.checked = completed;
         titleEl.innerText = title; // что бы не парсить страницу используем вместо innerHTML - innerText
         dataEl.innerText = formatDate(data);
         destroyBtn.classList.add('destroy');
-        // destroyBtn.addEventListener('click', deleteTask);
+        destroyBtn.addEventListener('click', deleteTask);
         // написать функцию извне для общения с внешними компонентами (по принципу addTask)
         editEl.classList.add('edit');
         editEl.value = title;
@@ -56,5 +55,4 @@ function TaskList() {
         return li;
     }
 
-    // return this;
 }

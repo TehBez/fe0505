@@ -1,6 +1,6 @@
 import {
   CustomEvents
-} from './customEvents';
+} from './customEvents.js';
 
 export class Filter {
   constructor(props) {
