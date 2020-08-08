@@ -1,7 +1,3 @@
-// Вопрос 1: мы здесь инициализируем Tasks делая его объектом?? аргумент tasks = [] - это подразумевает? или то, что по умолчанию в функцию мы получаем объект this = {}?
-
-// не подключен и не прописан в структуре HTML - не все очевидно с this.getCompletedTasks
-
 function Tasks(tasks = []) {
     // this = {}
 
@@ -61,6 +57,10 @@ function Tasks(tasks = []) {
         return {
             result: true
         };
+    }
+
+    this.deleteTask = function (taskId) {
+        this._tasks = this._tasks.filter(task => task.id !== taskId); // удаление тасковф через фильтр (при несовпадении id)
     }
 
     // return this;

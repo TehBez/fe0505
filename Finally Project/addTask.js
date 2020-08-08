@@ -6,6 +6,7 @@ function AddForm(props) { // передаём в конструктор свой
     // this = {}
 
     this._props = props; // сохраняем свойства props
+
     this._el = document.querySelector('.header');
     this._completeEl = this._el.querySelector('.complete-all');
     this._todoEl = this._el.querySelector('.new-todo');
@@ -18,7 +19,7 @@ function AddForm(props) { // передаём в конструктор свой
 
     // генерируем саму функцию, в которой аргументом передаём объект событие
     function addTask(event) {
-        event.preventDefault(); // исключает перезагрузку страницы
+        event.preventDefault(); // исключаем перезагрузку страницы
         const {
             _completeEl,
             _todoEl,
@@ -31,7 +32,7 @@ function AddForm(props) { // передаём в конструктор свой
             completed: _completeEl.checked,
         };
 
-        console.log(task);
+        // console.log(task);
         // onAddTask(task) - при таком вызове this = underfined
         // onAddTask.call(this, task); // передаем this для нахождения _todoEl
         if (task.title.length > 0) {

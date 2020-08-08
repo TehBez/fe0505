@@ -1,4 +1,4 @@
-function TaskList() {
+function TaskList(remove) {
     // this = {}
     this._el = document.querySelector('.todo-list');
 
@@ -14,7 +14,8 @@ function TaskList() {
         return dd + '.' + mm + '.' + yy;
     }
 
-    function renderTask(task, deleteTask) { // пишем метод renderTask
+
+    function renderTask(task) { // пишем метод renderTask
         const {
             id,
             title,
@@ -40,13 +41,12 @@ function TaskList() {
         li.dataset.id = id;
         view.classList.add('view'); // класс-лист возвращает нам объект у которого есть свойство add
         toggleEl.classList.add('toggle');
-        toggleEl.setAttribute('type', 'checkbox'); // setAttribute работает всегда ?
+        toggleEl.setAttribute('type', 'checkbox');
         toggleEl.checked = completed;
         titleEl.innerText = title; // что бы не парсить страницу используем вместо innerHTML - innerText
         dataEl.innerText = formatDate(data);
         destroyBtn.classList.add('destroy');
-        destroyBtn.addEventListener('click', deleteTask);
-        // написать функцию извне для общения с внешними компонентами (по принципу addTask)
+        destroyBtn.addEventListener('click', () => remove(id));
         editEl.classList.add('edit');
         editEl.value = title;
         submitEl.classList.add('visually-hidden');

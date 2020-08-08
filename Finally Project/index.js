@@ -3,76 +3,56 @@ const addForm = new AddForm({
     onAddTask // объект - первый аргумент вызова функции - функция обратного вызова
 });
 
-addForm.events.addEventListener('complete', onAddTaskComplete);
-
 // фильтр
-const filter = new Filter({
+const filter = new Filter({ // создаём фильтр
     defaultFilter: '#/all',
-    onChangeFilter: onFilterChange
+    onChangeFilter: onFilterChange // вызываем onFilterChange
 });
 
+// taskList (передаем функцию onRemoveTask) - где после события 'click' происходит удаление задачи
+const taskList = new TaskList(onRemoveTask);
 
-const taskList = new TaskList();
-
-taskList.render(tasks.getAllTasks()); // в рендере отрисовываем все таски
-
-taskList.render([ // эти таски помещаем в const tasks = new Tasks()
-    {
+// стартовые задачи (массив)
+const tasks = new Tasks(
+    [{
         id: 1,
         title: 'Task 1',
-        completed: false
-    },
-    {
+        completed: false,
+        data: '2020-07-07'
+    }, {
         id: 2,
         title: 'Task 2',
-        completed: true
-    }
-]);
-
-
-// const taskList = new TaskList({
-//     filterItems: filteredTask
-// });
+        completed: true,
+        data: '2020-07-07'
+    }]
+);
 
 onFilterChange();
 
-function filteredTask(task) {
+// получаем таски по фильтру
+function getTasks() {
     const currentFilterName = filter.getCurrentFilterName();
 
     switch (currentFilterName) {
         case '#/active':
-            return task.getCompleted() === false;
+            return tasks.getActiveTasks();
         case '#/completed':
-            return task.getCompleted() === true;
+            return tasks.getCompletedTasks();
         default:
-            return true;
+            return tasks.getAllTasks();
     }
 }
 
+// функция отрисовки тасков по фильтру и подсчёт количества тасков по активной вкладке
 function onFilterChange() {
-    taskList.render();
-    filter.setItemsCount(taskList.getActiveTaskCount());
+    const renderedTasks = getTasks();
+    taskList.render(renderedTasks);
+
+    filter.setItemsCount(renderedTasks.length); // считаем длину массива отрисованных задач (длина массива отрисованных тасков)
 }
 
-
-// const tasks = new Tasks([{
-//         id: 1, // создаём таски и отрисовываем их taskList.render(tasks.getAllTasks());
-//         title: 'Task 1',
-//         data: '2020-07-01',
-//         completed: false
-//     },
-//     {
-//         id: 2,
-//         title: 'Task 2',
-//         data: '2020-07-01',
-//         completed: true
-//     }
-// ]);
-
-
-
+// функция добавления тасков
 function onAddTask(task) {
-    // tasks.push(task); - вместо него вызываем метод, который написан в tasks
     const {
         result,
         error
@@ -86,4 +66,11 @@ function onAddTask(task) {
     } else {
         console.error('task not added', error); // иначе - ошибка
     }
+}
+
+// функция удаления тасков (по ID)
+function onRemoveTask(taskId) {
+    tasks.deleteTask(taskId);
+
+    onFilterChange();
 }
