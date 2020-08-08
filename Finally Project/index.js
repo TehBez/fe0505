@@ -16,14 +16,14 @@ const taskList = new TaskList(onRemoveTask);
 const tasks = new Tasks(
     [{
         id: 1,
-        title: 'Task 1',
-        completed: false,
-        data: '2020-07-07'
+        title: 'Last Meeting',
+        completed: true,
+        data: '2020-07-12'
     }, {
         id: 2,
-        title: 'Task 2',
-        completed: true,
-        data: '2020-07-07'
+        title: 'Finally Project',
+        completed: false,
+        data: '2020-08-08'
     }]
 );
 
